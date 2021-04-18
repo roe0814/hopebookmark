@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+    <name>hopebookmark</name>
+    <author>傳儒</author>
+    <creationDate>April 2021</creationDate>
+    <version>1.1.0</version><!-- 版本 -->
+    <copyright>Copyright (C) 2020 - 2021 Tkuw.net. All rights reserved.</copyright>
+    <description>每日顯示不同的希望新生書籤</description>
+    <files>
+        <filename>mod_hopebookmark.xml</filename>
+        <filename module="mod_hopebookmark">mod_hopebookmark.php</filename>
+        <folder>hope-embark</folder>
+		<folder>heart-of-the-hero</folder>
+		<folder>heart-of-the-hero-2</folder>
+    </files>
+ 
+    <!-- 提供給後台的設定 -->
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+ 
+                <!-- 後台設定中，欄位顯示的方式，會以 <select> 呈現 -->
+                <!-- name="lang" 需要對應 select 欄位名稱 -->
+                <!-- queue="" 中以 id as value 的 value 會自動添加到下拉式選單的 value="" -->
+                <field
+                    name="pic"
+                    type="list"
+                    label="請選擇書籤版本"
+                    description="選擇顯示版本"
+                    default=""
+                    >
+                    <option value="1">希望新生(I) -方型圖</option>
+                    <option value="2">心之勇士(II)-橫向圖</option>
+                    <option value="3">心之勇士(II)-方型圖</option>
+					<option value="0">其它</option>
+                </field>
+                <field
+					name="imgtype"
+					type="text"
+					label="圖片類型"
+					description="圖片類型 PNG/GIF/JPG 等。（預設為: JPG）"
+					default="jpg"
+                    showon="pic:0"
+				/>
+                <field
+					name="folder"
+					type="text"
+					label="圖片資料夾"
+					description="請提供足夠365張相片，依序編號001~365，圖片資料夾的相對路徑（例如: images）"
+                    showon="pic:0"
+				/>
+                <field
+					name="link"
+					type="text"
+					label="連結"
+					description="如果圖片被點選，重新導向的網址，例如: https://bwy.tkuw.net"
+				/>
+                <field
+					name="altinfo"
+					type="text"
+					label="圖片說明"
+					description="當圖片無法顯示時的說明文字"
+				/>
+                <field
+					name="uptext"
+					type="text"
+					label="圖片上方顯示的文字"
+					description="圖片上方顯示的文字"
+				/>
+                <field
+					name="downtext"
+					type="text"
+					label="圖片下方顯示的文字"
+					description="圖片下方顯示的文字"
+				/>
+                <field
+					name="divstyle"
+					type="text"
+					label="文字CSS樣式"
+					description="文字CSS樣式"
+				/>
+                <field
+					name="maxwidth"
+					type="text"
+					label="最大寬度"
+					description="請輸入最大寬度,例如:500px"
+				/>
+            </fieldset>
+        </fields>
+    </config>
+ 
+    <!-- 指定 SQL 的路徑 -->
+ 
+    <!-- install/uninstall/update 所需要的檔案路徑設定 -->
+ 
+</extension>
